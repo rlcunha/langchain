@@ -6,9 +6,9 @@ st.title("Assistente do Youtube!")
 
 with st.sidebar:
     with st.form(key="my_form"):
-        youtube_url = st.sidebar.text_area(label="URL do Vídeo", max_chars=50)
+        youtube_url = st.sidebar.text_area(label="URL do Vídeo", max_chars=100)
         query = st.sidebar.text_area(
-            label="Me pergunte sobre algo do vídeo!", max_chars=50, key="query"
+            label="Me pergunte sobre algo do vídeo!", max_chars=100, key="query"
         )
         submit_button = st.form_submit_button(label="Enviar")
 

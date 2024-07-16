@@ -7,11 +7,11 @@ from langchain.chains import LLMChain
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+# Reload the environment variables with override
+load_dotenv(override=True)
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 openai_organization = os.getenv("OPENAI_ORGANIZATION")
-
 
 def generate_company_name(segmento):
     llm = ChatOpenAI(

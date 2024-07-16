@@ -10,7 +10,7 @@ from langchain.agents.agent_types import AgentType
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv(override=True)
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 openai_organization = os.getenv("OPENAI_ORGANIZATION")
