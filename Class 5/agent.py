@@ -68,5 +68,15 @@ agent = initialize_agent(
 
 
 def handle_chat(query):
-    response = agent.run(query)
-    return response
+    try:
+        response = agent.run(query)
+        return response
+    except Exception as e:
+        error_msg = f"Ocorreu um erro ao processar sua mensagem: {str(e)}"
+        if "maximum context length" in str(e):
+            error_msg += "\nPor favor, reformule sua pergunta para ser mais curta."
+        elif "API key" in str(e):
+            error_msg += "\nVerifique se as chaves de API estão configuradas corretamente."
+        elif "database" in str(e):
+            error_msg += "\nErro ao acessar o banco de dados. Verifique a conexão."
+        return error_msg
